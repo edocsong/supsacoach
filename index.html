@@ -55,6 +55,12 @@
             padding-left: 12px;
             border-left: 3px solid #4361ee;
         }
+        .section h3 {
+            font-size: 15px;
+            color: #2e75b6;
+            margin: 18px 0 8px 0;
+            font-weight: 700;
+        }
         .section p {
             font-size: 15px;
             color: #495057;
@@ -88,6 +94,19 @@
         table td {
             color: #495057;
         }
+        .notice-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 14px;
+            color: #555;
+            margin: 12px 0;
+        }
+        .notice-box a {
+            color: #0563c1;
+            text-decoration: none;
+        }
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -103,20 +122,25 @@
         <div class="header">
             <div class="app-name">습사코치 (SupsaCoach)</div>
             <h1>개인정보처리방침</h1>
-            <div class="date">시행일: 2025년 2월 18일</div>
+            <div class="date">시행일: 2026년 3월 12일</div>
         </div>
 
         <div class="section">
             <h2>1. 개인정보의 처리 목적</h2>
-            <p>송태성은 <strong>습사코치</strong>(이하 "앱")를 운영함에 있어 다음의 목적을 위하여 개인정보를 처리합니다.</p>
+            <p>송태성(이하 "운영자")은 <strong>습사코치</strong>(이하 "앱")를 운영함에 있어 다음의 목적을 위하여 개인정보를 처리합니다.</p>
             <ul>
                 <li>카메라를 통한 사용자 자세 촬영 및 AI 기반 자세 분석 서비스 제공</li>
                 <li>분석 결과 표시 및 피드백 제공</li>
+                <li>Google 계정을 통한 회원 인증 및 로그인 서비스 제공</li>
+                <li>전국 배틀 랭킹 및 대회(토너먼트) 서비스 제공</li>
+                <li>게임 기록 저장 및 순위 표시</li>
             </ul>
         </div>
 
         <div class="section">
             <h2>2. 수집하는 개인정보 항목 및 수집 방법</h2>
+
+            <h3>① 기기 내 처리 항목 (서버 미전송)</h3>
             <table>
                 <tr>
                     <th>수집 항목</th>
@@ -129,21 +153,141 @@
                     <td>자세 분석 및 교정 피드백 제공</td>
                 </tr>
             </table>
-            <p>본 앱은 회원가입을 요구하지 않으며, 이름, 이메일, 전화번호 등의 개인 식별 정보를 수집하지 않습니다.</p>
+
+            <h3>② Google 계정 로그인 시 수집 항목</h3>
+            <table>
+                <tr>
+                    <th>수집 항목</th>
+                    <th>필수 여부</th>
+                    <th>수집 경로</th>
+                    <th>이용 목적</th>
+                </tr>
+                <tr>
+                    <td>이메일 주소</td>
+                    <td>필수</td>
+                    <td>Google OAuth 2.0 인증</td>
+                    <td>회원 식별 및 인증</td>
+                </tr>
+                <tr>
+                    <td>이름 / 표시 이름</td>
+                    <td>필수</td>
+                    <td>Google OAuth 2.0 인증</td>
+                    <td>앱 내 사용자 표시</td>
+                </tr>
+                <tr>
+                    <td>Google 고유 식별자 (UID)</td>
+                    <td>필수</td>
+                    <td>Firebase Authentication</td>
+                    <td>계정 관리 및 중복 로그인 방지</td>
+                </tr>
+            </table>
+
+            <h3>③ 이메일/비밀번호 로그인 시 수집 항목</h3>
+            <table>
+                <tr>
+                    <th>수집 항목</th>
+                    <th>필수 여부</th>
+                    <th>수집 경로</th>
+                    <th>이용 목적</th>
+                </tr>
+                <tr>
+                    <td>이메일 주소</td>
+                    <td>필수</td>
+                    <td>사용자 직접 입력</td>
+                    <td>회원 식별 및 인증</td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td>필수</td>
+                    <td>사용자 직접 입력</td>
+                    <td>인증 (암호화 저장)</td>
+                </tr>
+            </table>
+
+            <h3>④ 프로필 및 게임 활동 수집 항목</h3>
+            <table>
+                <tr>
+                    <th>수집 항목</th>
+                    <th>필수 여부</th>
+                    <th>이용 목적</th>
+                </tr>
+                <tr>
+                    <td>닉네임</td>
+                    <td>필수 (배틀/대회 참여 시)</td>
+                    <td>랭킹 표시 및 대회 참여</td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td>필수 (배틀/대회 참여 시)</td>
+                    <td>지역별 랭킹 분류</td>
+                </tr>
+                <tr>
+                    <td>소속 (클럽)</td>
+                    <td>선택</td>
+                    <td>소속 정보 표시</td>
+                </tr>
+                <tr>
+                    <td>국가</td>
+                    <td>자동 수집</td>
+                    <td>국가별 랭킹 분류</td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>선택</td>
+                    <td>성별 구분 랭킹</td>
+                </tr>
+                <tr>
+                    <td>게임 점수 / 대회 기록</td>
+                    <td>자동 수집</td>
+                    <td>배틀 랭킹 및 토너먼트 순위 표시</td>
+                </tr>
+            </table>
         </div>
 
         <div class="section">
             <h2>3. 개인정보의 보유 및 이용 기간</h2>
-            <p>본 앱은 카메라를 통해 촬영된 영상 및 이미지를 <strong>기기 내에서만 실시간으로 처리</strong>하며, 별도의 서버에 저장하거나 전송하지 않습니다. 분석이 완료된 후 해당 데이터는 즉시 폐기됩니다.</p>
+            <table>
+                <tr>
+                    <th>데이터 항목</th>
+                    <th>저장 위치</th>
+                    <th>보관 기간</th>
+                </tr>
+                <tr>
+                    <td>카메라 영상/이미지</td>
+                    <td>기기 내 처리 (서버 미전송)</td>
+                    <td>분석 즉시 삭제</td>
+                </tr>
+                <tr>
+                    <td>이메일 / 이름 / UID</td>
+                    <td>Firebase Authentication</td>
+                    <td>회원 탈퇴 시까지</td>
+                </tr>
+                <tr>
+                    <td>닉네임 / 지역 / 소속 / 성별</td>
+                    <td>기기 내 저장 + Firebase Firestore</td>
+                    <td>회원 탈퇴 시까지</td>
+                </tr>
+                <tr>
+                    <td>게임 점수 / 대회 기록</td>
+                    <td>Firebase Firestore</td>
+                    <td>회원 탈퇴 시까지</td>
+                </tr>
+            </table>
         </div>
 
         <div class="section">
             <h2>4. 개인정보의 제3자 제공</h2>
-            <p>회사는 사용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
+            <p>운영자는 사용자의 개인정보를 원칙적으로 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
             <ul>
                 <li>사용자가 사전에 동의한 경우</li>
-                <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+                <li>법령의 규정에 의거하거나, 수사기관의 적법한 요청이 있는 경우</li>
             </ul>
+            <div class="notice-box">
+                <strong>Google LLC 서비스 연동</strong><br>
+                Google 계정 로그인 이용 시 Google의 개인정보처리방침이 함께 적용됩니다.<br>
+                → <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>
+            </div>
+            <p><strong>랭킹 공개 정보:</strong> 배틀 모드 및 대회 참여 시, 닉네임·지역·소속·점수는 다른 사용자에게 랭킹 목록으로 공개됩니다.</p>
         </div>
 
         <div class="section">
@@ -157,51 +301,85 @@
                 <tr>
                     <td>카메라 (android.permission.CAMERA)</td>
                     <td>필수</td>
-                    <td>사용자의 자세를 촬영하여 AI 분석 수행</td>
+                    <td>사용자 자세를 촬영하여 AI 분석 수행</td>
+                </tr>
+                <tr>
+                    <td>인터넷 (android.permission.INTERNET)</td>
+                    <td>필수</td>
+                    <td>로그인, 랭킹, 대회 데이터 통신</td>
+                </tr>
+                <tr>
+                    <td>저장소</td>
+                    <td>선택</td>
+                    <td>사진/동영상 저장 및 불러오기</td>
                 </tr>
             </table>
-            <p>카메라 권한은 앱의 핵심 기능인 자세 분석을 위해 필수적으로 사용되며, 사용자가 권한을 허용하지 않을 경우 해당 기능을 이용할 수 없습니다.</p>
         </div>
 
         <div class="section">
             <h2>6. 개인정보의 안전성 확보 조치</h2>
-            <p>회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+            <p>운영자는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
             <ul>
                 <li>카메라 데이터는 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</li>
                 <li>분석 완료 후 영상/이미지 데이터는 즉시 메모리에서 삭제됩니다.</li>
+                <li>Google 로그인은 OAuth 2.0 표준 프로토콜을 사용하며, 비밀번호를 직접 수집하지 않습니다.</li>
+                <li>이메일/비밀번호 인증 시 비밀번호는 Firebase에서 암호화하여 저장됩니다.</li>
+                <li>Firebase Firestore 데이터는 전송 시 TLS 암호화가 적용됩니다.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>7. 개인정보 보호책임자</h2>
+            <h2>7. 이용자의 권리</h2>
+            <p>이용자는 언제든지 아래 권리를 행사할 수 있습니다.</p>
+            <ul>
+                <li><strong>개인정보 열람·수정·삭제 요청:</strong> 아래 이메일로 요청</li>
+                <li><strong>Google 계정 연동 해제:</strong> Google 계정 설정 → 보안 → 앱 접근 권한 관리에서 습사코치 삭제</li>
+                <li><strong>카메라 권한 철회:</strong> 기기 설정 → 앱 → 습사코치 → 권한 → 카메라 끄기</li>
+                <li><strong>랭킹 데이터 삭제:</strong> 앱 내 설정 또는 아래 이메일로 요청</li>
+                <li><strong>로그아웃:</strong> 앱 메인 화면 우측 상단에서 로그아웃 가능</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. 개인정보 보호책임자</h2>
             <table>
                 <tr>
                     <th>항목</th>
                     <th>내용</th>
                 </tr>
                 <tr>
-                    <td>이름</td>
+                    <td>운영자 / 개인정보 보호책임자</td>
                     <td>송태성</td>
                 </tr>
                 <tr>
-                    <td>담당자</td>
-                    <td>개인정보 보호책임자</td>
+                    <td>이메일</td>
+                    <td><a href="mailto:tssong@tscnd.kr" style="color:#0563c1;">tssong@tscnd.kr</a></td>
                 </tr>
                 <tr>
-                    <td>이메일</td>
-                    <td>tssong@tscnd.kr</td>
+                    <td>처리 기간</td>
+                    <td>요청일로부터 10일 이내</td>
                 </tr>
             </table>
-            <p>개인정보 처리에 관한 불만, 피해구제 등에 관한 사항은 위 연락처로 문의해 주시기 바랍니다.</p>
         </div>
 
         <div class="section">
-            <h2>8. 개인정보처리방침의 변경</h2>
-            <p>이 개인정보처리방침은 2025년 2월 18일부터 적용됩니다. 법령, 정책 또는 보안 기술의 변경에 따라 내용이 추가, 삭제 및 수정될 수 있으며, 변경 시 앱 내 공지사항 또는 이 페이지를 통해 안내합니다.</p>
+            <h2>9. 개인정보 침해 구제 기관</h2>
+            <p>아래 기관에 피해 구제를 신청하실 수 있습니다.</p>
+            <ul>
+                <li>개인정보 침해신고센터: <a href="https://privacy.kisa.or.kr" target="_blank" style="color:#0563c1;">privacy.kisa.or.kr</a> / ☎ 118</li>
+                <li>개인정보 분쟁조정위원회: <a href="https://www.kopico.go.kr" target="_blank" style="color:#0563c1;">www.kopico.go.kr</a> / ☎ 1833-6972</li>
+                <li>대검찰청 사이버수사과: <a href="https://www.spo.go.kr" target="_blank" style="color:#0563c1;">www.spo.go.kr</a> / ☎ 1301</li>
+                <li>경찰청 사이버안전국: <a href="https://cyberbureau.police.go.kr" target="_blank" style="color:#0563c1;">cyberbureau.police.go.kr</a> / ☎ 182</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>10. 개인정보처리방침의 변경</h2>
+            <p>이 개인정보처리방침은 2026년 3월 12일부터 적용됩니다. 법령, 정책 또는 보안 기술의 변경에 따라 내용이 추가, 삭제 및 수정될 수 있으며, 변경 시 앱 내 공지사항 또는 이 페이지를 통해 안내합니다.</p>
         </div>
 
         <div class="footer">
-            &copy; 2025 TSCND. All rights reserved.
+            &copy; 2026 송태성. All rights reserved.
         </div>
     </div>
 </body>
