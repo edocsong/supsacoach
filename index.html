@@ -131,7 +131,7 @@
             <ul>
                 <li>카메라를 통한 사용자 자세 촬영 및 AI 기반 자세 분석 서비스 제공</li>
                 <li>분석 결과 표시 및 피드백 제공</li>
-                <li>Google 계정을 통한 회원 인증 및 로그인 서비스 제공</li>
+                <li>Google 계정 또는 Apple 계정을 통한 회원 인증 및 로그인 서비스 제공</li>
                 <li>전국 배틀 랭킹 및 대회(토너먼트) 서비스 제공</li>
                 <li>게임 기록 저장 및 순위 표시</li>
             </ul>
@@ -176,6 +176,34 @@
                 </tr>
                 <tr>
                     <td>Google 고유 식별자 (UID)</td>
+                    <td>필수</td>
+                    <td>Firebase Authentication</td>
+                    <td>계정 관리 및 중복 로그인 방지</td>
+                </tr>
+            </table>
+
+            <h3>②-2 Apple 계정 로그인 시 수집 항목</h3>
+            <table>
+                <tr>
+                    <th>수집 항목</th>
+                    <th>필수 여부</th>
+                    <th>수집 경로</th>
+                    <th>이용 목적</th>
+                </tr>
+                <tr>
+                    <td>이메일 주소</td>
+                    <td>필수 (사용자가 비공개 선택 가능)</td>
+                    <td>Apple Sign In</td>
+                    <td>회원 식별 및 인증</td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td>선택 (최초 로그인 시)</td>
+                    <td>Apple Sign In</td>
+                    <td>앱 내 사용자 표시</td>
+                </tr>
+                <tr>
+                    <td>Apple 고유 식별자 (UID)</td>
                     <td>필수</td>
                     <td>Firebase Authentication</td>
                     <td>계정 관리 및 중복 로그인 방지</td>
@@ -323,6 +351,7 @@
                 <li>카메라 데이터는 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</li>
                 <li>분석 완료 후 영상/이미지 데이터는 즉시 메모리에서 삭제됩니다.</li>
                 <li>Google 로그인은 OAuth 2.0 표준 프로토콜을 사용하며, 비밀번호를 직접 수집하지 않습니다.</li>
+                <li>Apple 로그인은 Sign In with Apple 프로토콜을 사용하며, 사용자는 이메일 비공개를 선택할 수 있습니다.</li>
                 <li>이메일/비밀번호 인증 시 비밀번호는 Firebase에서 암호화하여 저장됩니다.</li>
                 <li>Firebase Firestore 데이터는 전송 시 TLS 암호화가 적용됩니다.</li>
             </ul>
